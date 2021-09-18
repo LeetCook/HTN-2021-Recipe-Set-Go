@@ -5,7 +5,7 @@ import './Page.css';
 
 const Page: React.FC = () => {
 
-  const { name } = useParams<{ name: string; }>();
+  const name = 'bob';
 
   return (
     <IonPage>
