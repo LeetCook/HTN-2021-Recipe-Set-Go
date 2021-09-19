@@ -1,6 +1,6 @@
 {
 	"appId": "io.ionic.starter",
-	"appName": "client",
-	"webDir": "build",
+	"appName": "recipe-set-go",
+	"webDir": "www",
 	"bundledWebRuntime": false
 }
