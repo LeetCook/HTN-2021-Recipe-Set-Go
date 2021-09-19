@@ -105,4 +105,4 @@ dist
 config/
 env.py
 recipesetgo.json
-venv/
+venv/Lib/
