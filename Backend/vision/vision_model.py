@@ -1,6 +1,6 @@
 import os, io
 from google.cloud import vision
 
-print(data)
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = r'recipestogo.json'
 
 client = vision.ImageAnnotatorClient()
