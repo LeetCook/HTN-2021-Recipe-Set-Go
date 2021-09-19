@@ -57,3 +57,8 @@ class Ingredient(declarative_base()):
     name = Column(String)
     amount = Column(String)
     is_sub = Column(Boolean)
+
+    def __init__(self, name, amount, is_sub):
+        self.name = name
+        self.amount = amount
+        self.is_sub = is_sub
