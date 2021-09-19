@@ -22,8 +22,30 @@ def home():
     print("home")
     return "home"
 
-@app.route('/')
-def home():
+@app.route('/user', method=['POST'])
+def ingredients():
+    if request.method == 'POST':
+        name = request.form['name']
+        score = request.form['score']
+
+        user_data = User(name, score)
+
+        db.session.add(user_data)
+        db.session.commit()
+
+        return redirect(url_for('Index'))
+
+
+
+
+    print("home")
+    return "home"
+
+@app.route('/ingredients', method=['GET'])
+def ingredients():
+    if request.method == 'GET':
+        name = request.form['name']
+        
     print("home")
     return "home"
 

@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-buttons slot="start">
+      <ion-back-button text="" icon="arrow-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Recipe Challenges</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-card (click)="challenge()">
+      <img src="assets/4cf338a419f58f76fd4734096c40fbd8.jpg" />
+      <ion-card-header>
+        <ion-card-title>Spinach Kulcha</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Hard
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card (click)="challenge()">
+      <img src="assets/chicken-fajitas-horizontal-jpg-1522721531.jpg" />
+      <ion-card-header>
+        <ion-card-title>Chicken Fajitas</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Medium
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card (click)="challenge()">
+      <img src="assets/chana-masala-recipe-500x500.jpg" />
+      <ion-card-header>
+        <ion-card-title>Chana Masala</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Easy
+      </ion-card-content>
+    </ion-card>
+
+  </ion-list>
+</ion-content>

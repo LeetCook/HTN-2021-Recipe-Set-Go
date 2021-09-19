@@ -1,7 +1,7 @@
 {
-  "name": "client",
+  "name": "recipe-set-go",
   "integrations": {
     "capacitor": {}
   },
-  "type": "react"
+  "type": "angular"
 }
