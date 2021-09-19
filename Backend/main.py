@@ -3,6 +3,7 @@ from flask import Flask, request
 from argparse import ArgumentParser
 from math import floor
 import os
+import env
 import random
 import uuid
 import urllib.parse
@@ -22,7 +23,8 @@ def home():
     return "home"
 
 def create_user(session):
-    session.add_all(User(1, "aa", 20))
+    # session.add_all(User())
+    pass
 
 def parse_cmdline():
     parser = ArgumentParser()
@@ -39,6 +41,7 @@ if __name__ == '__main__':
     # postgres://demo:<demo_password>@127.0.0.1:26257?sslmode=require
     # For CockroachCloud:
     # postgres://<username>:<password>@<globalhost>:26257/<cluster_name>.defaultdb?sslmode=verify-full&sslrootcert=<certs_dir>/<ca.crt>
+
     try:
         db_uri = os.path.expandvars(conn_string)
         db_uri = urllib.parse.unquote(db_uri)
@@ -51,10 +54,14 @@ if __name__ == '__main__':
         # connecting to CockroachDB using the 'cockroachdb' dialect.
         # For more information, see
         # https://github.com/cockroachdb/sqlalchemy-cockroachdb.
-        engine = create_engine(psycopg_uri)
+
+        engine = create_engine('cockroachdb://{user}:{password}@{host}:26257/defaultdb?sslmode=verify-full&sslrootcert=./config/root.crt&options={cluster}'
+        .format(password=os.environ.get('DB_PASS'), user=os.environ.get('DB_USER'), host=os.environ.get('DB_HOST'), cluster=os.environ.get('DB_CLUSTER')))
     except Exception as e:
         print('Failed to connect to database.')
         print('{0}'.format(e))
+    else:
+        print(os.environ.get('DB_PASS'))
 
     run_transaction(sessionmaker(bind=engine),
                     lambda s: create_user(s))
