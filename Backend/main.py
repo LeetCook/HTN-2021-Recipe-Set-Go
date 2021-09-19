@@ -22,6 +22,11 @@ def home():
     print("home")
     return "home"
 
+@app.route('/')
+def home():
+    print("home")
+    return "home"
+
 def create_user(session):
     # session.add_all(User())
     pass
